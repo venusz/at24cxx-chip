@@ -18,7 +18,7 @@ To use this chip in your project, include it as a dependency in your `diagram.js
 
 ```json
   "dependencies": {
-    "chip-AT24CXX": "github:venusz/at24cxx-chip@1.0.0"
+    "chip-at24cxx": "github:venusz/at24cxx-chip@1.0.0"
   }
 ```
 
