@@ -1,15 +1,16 @@
-# Wokwi Inverter Chip Example
+# Wokwi 24C01 EEPROM Chip Example
 
-This is a basic custom chip for [Wokwi](https://wokwi.com/). It implements a simple inverter: the output is always opposite to the input.
+The 24C01 Custom Chip simulates the Microchip chip of the same name. It provides 1K of serial EEPROM.
 
 ## Pin names
 
-| Name | Description              |
-| ---- | ------------------------ |
-| IN   | Input signal             |
-| OUT  | Output (inverted) signal |
+| Name         | Description                                            |
+| ------------ | ------------------------------------------------------ |
+| `A0-A2`        | Address pins. See [addressing](#adressing) below for more info    |
 | GND  | Ground                   |
-| VCC  | Supply voltage           |
+| VCC  | Supply voltage           |                |
+| `SCL, SDA`      | THe I2C pins. See [I2c](#i2c-comms) below for more info           |
+| `TEST`           | Write enable pin - unused        
 
 ## Usage
 
@@ -17,17 +18,17 @@ To use this chip in your project, include it as a dependency in your `diagram.js
 
 ```json
   "dependencies": {
-    "chip-inverter": "github:venusz/at24cxx-chip@1.0.0"
+    "chip-24C01": "github:alextrical/wokwi-24C01-custom-chip@1.0.0"
   }
 ```
 
-Then, add the chip to your circuit by adding a `chip-at24cxx` item to the `parts` section of diagram.json:
+Then, add the chip to your circuit by adding a `chip-24C01` item to the `parts` section of diagram.json:
 
 ```json
   "parts": {
     ...,
-    { "type": "chip-at24cxx", "id": "chip1" }
+    { "type": "chip-24C01", "id": "chip1" }
   },
 ```
 
-For a complete example, see [the inverter chip test project](https://wokwi.com/projects/396384978929228801).
+For a complete example, see [the EEPROM chip test project](https://wokwi.com/projects/329482717479567954).
