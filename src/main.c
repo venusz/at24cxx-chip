@@ -140,7 +140,6 @@ bool on_i2c_write(void *user_data, uint8_t data) {
       }
       chip->buff[chip->byte_counter] = data;
       chip->byte_counter++;
-      //chip->address_register = (chip->address_register & 0xfe0) + (chip->address_register & 0x1f) + 1 & 0x1f
     break;
     default:
       printf("error");
