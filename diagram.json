@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 0.6, "left": -0.6, "attrs": {} },
+    {
+      "type": "chip-at24cxx",
+      "id": "chip1",
+      "top": -94.98,
+      "left": 139.2,
+      "attrs": { "eepromSize": "64" }
+    },
+    { "type": "wokwi-logic-analyzer", "id": "logic1", "top": -86.05, "left": 345.6, "attrs": {"triggerMode": "level" } }
+  ],
+  "connections": [
+    [ "uno:GND.1", "chip1:GND", "black", [ "v0" ] ],
+    [ "chip1:VCC", "uno:3.3V", "red", [ "v0", "h40.21", "v278.4", "h-124.8" ] ],
+    [ "uno:A4.2", "chip1:SDA", "yellow", [ "v-37.8", "h181.4", "v-48" ] ],
+    [ "uno:A5.2", "chip1:SCL", "green", [ "v-47.4", "h181.8", "v-28.8", "h-19.2" ] ],
+    [ "uno:8", "chip1:WP", "cyan", [ "v-28.8", "h125.2", "v-67.2" ] ],
+    [ "uno:3.3V", "chip1:A2", "red", [ "v28.7", "h-168.6", "v-278.4" ] ],
+    [ "uno:3.3V", "chip1:A1", "red", [ "v28.7", "h-168.6", "v-307.2" ] ],
+    [ "uno:3.3V", "chip1:A0", "red", [ "v28.7", "h-168.6", "v-316.8" ] ],
+    [ "logic1:D7", "uno:12", "green", [ "h0" ] ],
+    [ "logic1:D0", "chip1:SDA", "yellow", [ "h0" ] ],
+    [ "logic1:D1", "chip1:SCL", "green", [ "h0" ] ]
+  ],
+  "dependencies": {
+    "chip-at24cxx": "github:wokwi/at24cxx-chip@1.0.0"
+  }
+}
