@@ -53,7 +53,7 @@ void write_eeprom(void *user_data) {
   for(int i = 0; i < chip->byte_counter; i++){
     if(pin_read(chip->pin_wp)==LOW || chip->address_register <= eepromSize*3/4-1)
       chip->mem[chip->address_register] = chip->buff[i];
-    if(!(chip->address_register+1 & pageSize-1))
+    if(!((chip->address_register+1) & (pageSize-1)))
       chip->address_register &= 0xffff-(pageSize-1);
     else chip->address_register++;
   }
@@ -116,7 +116,7 @@ bool on_i2c_connect(void *user_data, uint32_t address, bool connect) {
 uint8_t on_i2c_read(void *user_data) {
   chip_state_t *chip = user_data;
   uint8_t data = chip->mem[chip->address_register];
-  chip->address_register = (chip->address_register + 1) & eepromSize-1;
+  chip->address_register = (chip->address_register + 1) & (eepromSize-1);
   return data;
 }
 
