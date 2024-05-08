@@ -4,5 +4,5 @@ firmware = '..\.pio\build\uno\firmware.hex'
 elf = '..\.pio\build\uno\firmware.elf'
 
 [[chip]]
-name = 'inverter'
+name = 'at24cxx'
 binary = 'dist/chip.wasm'
