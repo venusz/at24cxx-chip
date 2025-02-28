@@ -8,7 +8,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <time.h>
 
 const int BASE_ADDRESS = 0x50;
 
@@ -104,7 +103,7 @@ void chip_init(void) {
   writeTimer = timer_init(&tconf);
 
   // The following message will appear in the browser's DevTools console:
-  printf("at24cxx at address 0x%x\neeprom size: %d Byte\npage size: %d Byte\n, time: %d", address, eepromSize, pageSize, time(NULL));
+  printf("at24cxx at address 0x%x\neeprom size: %d Byte\npage size: %d Byte\n", address, eepromSize, pageSize);
 }
 
 
